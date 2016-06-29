@@ -1,5 +1,6 @@
 package com.bignerdranch.android.criminalintent;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -8,15 +9,32 @@ import java.util.UUID;
 public class Crime {
     private UUID mId;
     private String mTitle;
+    private Date mDate;
+    private boolean mSolved;
 
-    public Crime setTitle (String title) {
-        this.mTitle = title;
-        return this;
+    public Date getDate () {
+        return mDate;
     }
 
-    public Crime setId (UUID id) {
+    public void setDate (Date date) {
+        mDate = date;
+    }
+
+    public boolean isSolved () {
+        return mSolved;
+    }
+
+    public void setSolved (boolean solved) {
+        mSolved = solved;
+    }
+
+    public void setTitle (String title) {
+        this.mTitle = title;
+        this.mDate = new Date();
+    }
+
+    public void setId (UUID id) {
         this.mId = id;
-        return this;
     }
 
     public String getTitle () {
