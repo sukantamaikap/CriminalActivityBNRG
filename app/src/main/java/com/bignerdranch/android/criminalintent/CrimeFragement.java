@@ -56,11 +56,11 @@ public class CrimeFragement extends Fragment {
             }
         });
 
-        this.mDateButton = (Button) container.findViewById(R.id.crime_date);
-        this.mDateButton.setText(mCrime.getDate().toString());
+        this.mDateButton = (Button) view.findViewById(R.id.crime_date);
+        this.mDateButton.setText(mCrime.getDate());
         this.mDateButton.setEnabled(false);
 
-        this.mSolvedCheckBox = (CheckBox) container.findViewById(R.id.crime_solved);
+        this.mSolvedCheckBox = (CheckBox) view.findViewById(R.id.crime_solved);
         this.mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged (CompoundButton buttonView, boolean isChecked) {
