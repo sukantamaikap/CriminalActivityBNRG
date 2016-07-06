@@ -4,57 +4,30 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="5491494139449"
-    token="4225587183198307457"
-    verifier="COMPATIBLE" >
+    timestamp="6520604285086"
+    token="4225587183198307457" >
 
     <task
         name="javac"
-        duration="91" />
+        duration="380" />
     <task
         name="instant-run-dex"
-        duration="463" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="8" />
+        duration="168" />
     <task
         name="verifier"
-        duration="1" />
+        duration="7" />
 
     <artifact
-        location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/home/sm/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
 
-    <build timestamp="826290477910" >
+    <build timestamp="6520604285086" >
         <artifact
             location="/home/sm/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="2390633487258" >
-        <artifact
-            location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
-    </build>
-    <build
-        timestamp="5259399663524"
-        verifier="METHOD_DELETED" >
-        <artifact
-            location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="5431445141157"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/builds/debug/5431445141157/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="5491494139449"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
