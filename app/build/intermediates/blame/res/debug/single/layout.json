@@ -20,6 +20,10 @@
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_dialog_title_material.xml"
     },
     {
+        "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/fragment_crime_list.xml",
+        "source": "/home/sm/projects/CriminalActivityBNRG/app/src/main/res/layout/fragment_crime_list.xml"
+    },
+    {
         "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_list_menu_item_layout.xml"
     },
@@ -76,6 +80,10 @@
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/select_dialog_item_material.xml"
     },
     {
+        "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/list_item_crime.xml",
+        "source": "/home/sm/projects/CriminalActivityBNRG/app/src/main/res/layout/list_item_crime.xml"
+    },
+    {
         "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
@@ -116,12 +124,12 @@
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/notification_template_big_media.xml"
     },
     {
-        "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
-        "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_activity_chooser_view.xml"
-    },
-    {
         "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_activity_chooser_view.xml"
     },
     {
         "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
@@ -144,12 +152,12 @@
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/notification_template_lines.xml"
     },
     {
-        "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/support_simple_spinner_dropdown_item.xml"
-    },
-    {
         "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
         "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",

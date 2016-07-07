@@ -4,30 +4,46 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="6520604285086"
+    timestamp="5900097087068"
     token="4225587183198307457" >
 
     <task
         name="javac"
-        duration="380" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="168" />
+        duration="0" />
     <task
         name="verifier"
-        duration="7" />
+        duration="0" />
 
-    <artifact
-        location="/home/sm/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
-
-    <build timestamp="6520604285086" >
+    <build timestamp="2436886482399" >
         <artifact
             location="/home/sm/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
+    <build
+        timestamp="5487173235390"
+        verifier="R_CLASS_CHANGE" >
+        <artifact
+            location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="5771811388885"
+        verifier="IMPLEMENTED_INTERFACES_CHANGE" >
+        <artifact
+            location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="5844120387999" >
+        <artifact
+            location="/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
+    </build>
+    <build timestamp="5900097087068" />
 
 </instant-run>
