@@ -1,1 +1,0 @@
-CHANGED,/home/sm/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/bignerdranch/android/criminalintent/Crime.class
