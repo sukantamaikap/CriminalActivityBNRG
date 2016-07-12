@@ -4,7 +4,7 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="3119682419352"
+    timestamp="9424391149733"
     token="206352421887215739" >
 
     <task
@@ -20,19 +20,11 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-        type="DEX" />
-
-    <build timestamp="2901414068311" >
+    <build timestamp="9250074833783" >
         <artifact
             location="/home/smaikap/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="3119682419352" >
-        <artifact
-            location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-            type="DEX" />
-    </build>
+    <build timestamp="9424391149733" />
 
 </instant-run>
