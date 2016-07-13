@@ -13,6 +13,15 @@ public class Crime {
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
+    private int mIndex;
+
+    public int getIndex() {
+        return mIndex;
+    }
+
+    public void setIndex(int mIndex) {
+        this.mIndex = mIndex;
+    }
 
     public Crime() {
         this.mId = UUID.randomUUID();

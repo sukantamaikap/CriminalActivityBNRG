@@ -1,5 +1,7 @@
 package com.bignerdranch.android.criminalintent;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -23,6 +25,7 @@ public class CrimeFragment extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
+    private static final String EXTRA_CHANGED_INDEX= "com.bignerdranch.android.criminalintent.item_index";
 
     public static CrimeFragment newInstance(final UUID crimeId) {
         Bundle args = new Bundle();
@@ -66,7 +69,7 @@ public class CrimeFragment extends Fragment {
 
             @Override
             public void afterTextChanged (Editable s) {
-
+                informCaller();
             }
         });
 
@@ -80,10 +83,21 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onCheckedChanged (CompoundButton buttonView, boolean isChecked) {
                 CrimeFragment.this.mCrime.setSolved(isChecked);
+                informCaller();
             }
         });
 
         return view;
+    }
+
+    private void informCaller() {
+        Intent data = new Intent();
+        data.putExtra(EXTRA_CHANGED_INDEX, this.mCrime.getIndex());
+        this.getActivity().setResult(Activity.RESULT_OK, data);
+    }
+
+    public static int getChangedItemIndex(final Intent data) {
+        return data.getIntExtra(EXTRA_CHANGED_INDEX, 0);
     }
 
 }

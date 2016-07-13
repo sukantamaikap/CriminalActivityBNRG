@@ -19,6 +19,7 @@ public class CrimeLab {
             Crime crime = new Crime();
             crime.setTitle("Crime no #" + (i+1));
             crime.setSolved(i%2 == 0);
+            crime.setIndex(i);
             this.mCrimes.add(crime);
         }
     }
