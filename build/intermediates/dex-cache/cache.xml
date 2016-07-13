@@ -2,41 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/home/smaikap/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.0.0/2943c74db6d4346ab8c6531adac91fa05c137c40/support-annotations-24.0.0.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_eeb6324b37dd0da7b3bd3d3194b8103cc402a40f/classes.dex" />
-    </item>
-    <item
-        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0_06cb0d9ddb8960d36bc34fbdff919bdd69f77fbe/classes.dex" />
-    </item>
-    <item
-        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="de62eee647959b451264407c83aa150fbe9d8d85">
-        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_855c21939c9e5687e4ac5046bf417facc911658b/classes.dex" />
-    </item>
-    <item
-        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_16ec2f52fc279d86356a4975753d3f19befe1e07/classes.dex" />
-    </item>
-    <item
-        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.0.0_386636326ff2eb58753a29731e651e6e2f8c6e96/classes.dex" />
-    </item>
-    <item
         jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
         jumboMode="true"
         revision="24.0.0"
@@ -54,8 +19,43 @@
         jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="552401e49c85857096054cb707863200bec944d2">
+        sha1="2c9c0f6d17b21a1ff56bc53b7506dc5785525970">
         <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3c90e266be8785e58fde996f2bb354be20e3e161/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.0.0/2943c74db6d4346ab8c6531adac91fa05c137c40/support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_eeb6324b37dd0da7b3bd3d3194b8103cc402a40f/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0_06cb0d9ddb8960d36bc34fbdff919bdd69f77fbe/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="0ed211d7065aca8a245ae15409179204776eae1d">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_855c21939c9e5687e4ac5046bf417facc911658b/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_16ec2f52fc279d86356a4975753d3f19befe1e07/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.0.0_386636326ff2eb58753a29731e651e6e2f8c6e96/classes.dex" />
     </item>
     <item
         jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.0.0/jars/classes.jar"
