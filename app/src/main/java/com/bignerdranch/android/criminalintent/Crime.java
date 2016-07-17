@@ -1,7 +1,6 @@
 package com.bignerdranch.android.criminalintent;
 
-import android.text.format.DateFormat;
-
+import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,6 +11,7 @@ public class Crime {
     private UUID mId;
     private String mTitle;
     private Date mDate;
+    private Calendar mTime;
     private boolean mSolved;
     private int mIndex;
 
@@ -26,11 +26,20 @@ public class Crime {
     public Crime() {
         this.mId = UUID.randomUUID();
         this.mDate = new Date();
+        this.mTime = Calendar.getInstance();
     }
 
     public Date getDate () {
         return this.mDate;
 //        return DateFormat.format("EEE, dd, MMM yyyy", this.mDate).toString();
+    }
+
+    public Calendar getTime() {
+        return mTime;
+    }
+
+    public void setTime(Calendar mTime) {
+        this.mTime = mTime;
     }
 
     public void setDate (Date date) {

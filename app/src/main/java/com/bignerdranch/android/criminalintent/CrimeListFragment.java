@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +21,8 @@ import java.util.List;
  */
 public class CrimeListFragment extends Fragment {
     private RecyclerView mCrimeRecycleView;
-    private CrimeAdapter mCrimeAdaper;
-    private int mChahngedItemIndex;
+    private CrimeAdapter mCrimeAdapter;
+    private int mChangedItemIndex;
     private static final int REQUEST_CRIME = 1;
 
     @Nullable
@@ -40,12 +41,12 @@ public class CrimeListFragment extends Fragment {
         final CrimeLab crimeLab = CrimeLab.getInstance(getActivity());
         List<Crime> crimes = crimeLab.getmCrimes();
 
-        if (this.mCrimeAdaper == null) {
-            this.mCrimeAdaper = new CrimeAdapter(crimes);
-            mCrimeRecycleView.setAdapter(this.mCrimeAdaper);
+        if (this.mCrimeAdapter == null) {
+            this.mCrimeAdapter = new CrimeAdapter(crimes);
+            mCrimeRecycleView.setAdapter(this.mCrimeAdapter);
         } else {
-//            this.mCrimeAdaper.notifyDataSetChanged();
-            this.mCrimeAdaper.notifyItemChanged(this.mChahngedItemIndex);
+//            this.mCrimeAdapter.notifyDataSetChanged();
+            this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
         }
     }
 
@@ -59,7 +60,7 @@ public class CrimeListFragment extends Fragment {
             return;
         }
 
-        this.mChahngedItemIndex = CrimeFragment.getChangedItemIndex(data);
+        this.mChangedItemIndex = CrimeFragment.getChangedItemIndex(data);
     }
 
     private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -79,7 +80,7 @@ public class CrimeListFragment extends Fragment {
         public void bindCrime(final Crime crime) {
             this.mCrime = crime;
             this.mTitleTextView.setText(this.mCrime.getTitle());
-            this.mDateTextView.setText(this.mCrime.getDate().toString());
+            this.mDateTextView.setText(DateFormat.format("EEE, dd, MMM yyyy", this.mCrime.getDate()).toString());
             this.mSolvedCheckBox.setChecked(this.mCrime.isSolved());
         }
 

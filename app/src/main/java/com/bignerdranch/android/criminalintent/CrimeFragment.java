@@ -7,15 +7,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
@@ -23,21 +24,31 @@ import java.util.UUID;
  * Created by smaikap on 6/28/16.
  */
 public class CrimeFragment extends Fragment {
-    private static final String ARG_CRIME_ID = "crime_id";
+
     private Crime mCrime;
     private EditText mTitleField;
     private Button mDateButton;
+    private Button mTimeButton;
     private CheckBox mSolvedCheckBox;
 
+    private static final String ARG_CRIME_ID = "crime_id";
     private static final String EXTRA_CHANGED_INDEX= "com.bignerdranch.android.criminalintent.item_index";
     private static final String DIALOG_DATE = "DialogDate";
+    private static final String DIALOG_TIME = "DialogTime";
     private static final int REQUEST_DATE = 0;
+    private static final int REQUEST_TIME = 1;
 
+    /**
+     * Call this method to initialize {@link CrimeFragment}
+     *
+     * @param crimeId
+     * @return
+     */
     public static CrimeFragment newInstance(final UUID crimeId) {
-        Bundle args = new Bundle();
+        final Bundle args = new Bundle();
         args.putSerializable(ARG_CRIME_ID, crimeId);
 
-        CrimeFragment fragment = new CrimeFragment();
+        final CrimeFragment fragment = new CrimeFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -92,11 +103,23 @@ public class CrimeFragment extends Fragment {
             }
         });
 
+        this.mTimeButton = (Button) view.findViewById(R.id.crime_time);
+        updateTimeField();
+        this.mTimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentManager fragmentManager = CrimeFragment.this.getFragmentManager();
+                final TimePickerFragment dialog = TimePickerFragment.newInstance(CrimeFragment.this.mCrime.getTime());
+                dialog.setTargetFragment(CrimeFragment.this, REQUEST_TIME);
+                dialog.show(fragmentManager, DIALOG_TIME);
+            }
+        });
+
         this.mSolvedCheckBox = (CheckBox) view.findViewById(R.id.crime_solved);
         this.mSolvedCheckBox.setChecked(this.mCrime.isSolved());
         this.mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged (CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged (final CompoundButton buttonView, final boolean isChecked) {
                 CrimeFragment.this.mCrime.setSolved(isChecked);
                 informCaller();
             }
@@ -118,10 +141,21 @@ public class CrimeFragment extends Fragment {
             this.mCrime.setDate(date);
             updateDateField();
         }
+
+        if (requestCode == REQUEST_TIME) {
+            final Calendar calendar = (Calendar) data.getSerializableExtra(TimePickerFragment.EXTRA_TIME);
+            this.mCrime.setTime(calendar);
+            updateTimeField();
+        }
     }
 
     private void updateDateField() {
-        this.mDateButton.setText(this.mCrime.getDate().toString());
+        this.mDateButton.setText(DateFormat.format("EEE, dd, MMM yyyy", this.mCrime.getDate()).toString());
+    }
+
+    private void updateTimeField() {
+        final String timeString = "Hour " + this.mCrime.getTime().get(Calendar.HOUR_OF_DAY) + ":" + " Min " + this.mCrime.getTime().get(Calendar.MINUTE);
+        this.mTimeButton.setText(timeString);
     }
 
     private void informCaller() {
@@ -133,5 +167,4 @@ public class CrimeFragment extends Fragment {
     public static int getChangedItemIndex(final Intent data) {
         return data.getIntExtra(EXTRA_CHANGED_INDEX, 0);
     }
-
 }
