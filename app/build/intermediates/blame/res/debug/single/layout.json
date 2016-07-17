@@ -132,6 +132,10 @@
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
+        "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/dialog_date.xml",
+        "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/layout/dialog_date.xml"
+    },
+    {
         "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/activity_crime_pager.xml",
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/layout/activity_crime_pager.xml"
     },

@@ -52,8 +52,8 @@ public class CrimePagerActivity extends FragmentActivity {
         }
     }
 
-    public static Intent newIntent(final Context packageContex, final UUID crimeId) {
-        Intent intent = new Intent(packageContex, CrimePagerActivity.class);
+    public static Intent newIntent(final Context packageContext, final UUID crimeId) {
+        Intent intent = new Intent(packageContext, CrimePagerActivity.class);
         intent.putExtra(EXTRA_CRIME_ID, crimeId);
         return intent;
     }

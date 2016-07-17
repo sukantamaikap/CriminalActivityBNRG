@@ -28,8 +28,9 @@ public class Crime {
         this.mDate = new Date();
     }
 
-    public String getDate () {
-        return DateFormat.format("EEE, dd, MMM yyyy", this.mDate).toString();
+    public Date getDate () {
+        return this.mDate;
+//        return DateFormat.format("EEE, dd, MMM yyyy", this.mDate).toString();
     }
 
     public void setDate (Date date) {

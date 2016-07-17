@@ -18,9 +18,9 @@ import java.util.List;
 /**
  * Created by sm on 6/7/16.
  */
-public class CrimeListFragement extends Fragment {
+public class CrimeListFragment extends Fragment {
     private RecyclerView mCrimeRecycleView;
-    private CrimeAdaper mCrimeAdaper;
+    private CrimeAdapter mCrimeAdaper;
     private int mChahngedItemIndex;
     private static final int REQUEST_CRIME = 1;
 
@@ -41,7 +41,7 @@ public class CrimeListFragement extends Fragment {
         List<Crime> crimes = crimeLab.getmCrimes();
 
         if (this.mCrimeAdaper == null) {
-            this.mCrimeAdaper = new CrimeAdaper(crimes);
+            this.mCrimeAdaper = new CrimeAdapter(crimes);
             mCrimeRecycleView.setAdapter(this.mCrimeAdaper);
         } else {
 //            this.mCrimeAdaper.notifyDataSetChanged();
@@ -79,7 +79,7 @@ public class CrimeListFragement extends Fragment {
         public void bindCrime(final Crime crime) {
             this.mCrime = crime;
             this.mTitleTextView.setText(this.mCrime.getTitle());
-            this.mDateTextView.setText(this.mCrime.getDate());
+            this.mDateTextView.setText(this.mCrime.getDate().toString());
             this.mSolvedCheckBox.setChecked(this.mCrime.isSolved());
         }
 
@@ -90,17 +90,16 @@ public class CrimeListFragement extends Fragment {
         }
     }
 
-    private class CrimeAdaper extends RecyclerView.Adapter<CrimeHolder> {
+    private class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder> {
         private List<Crime> mCrimes;
 
-        public CrimeAdaper(final List<Crime> crimes) {
+        public CrimeAdapter(final List<Crime> crimes) {
             this.mCrimes = crimes;
         }
 
         @Override
         public CrimeHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
             final LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            // something is wrong with the list
             final View view = layoutInflater.inflate(R.layout.list_item_crime, parent, false);
             return new CrimeHolder(view);
         }
