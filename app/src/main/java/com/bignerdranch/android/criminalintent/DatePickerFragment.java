@@ -10,6 +10,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
@@ -27,7 +28,11 @@ public class DatePickerFragment extends DialogFragment {
     public static final String EXTRA_DATE = "com.bignerdranch.android.criminalintent.date";
 
     @Override
-    public Dialog onCreateDialog(final Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater,
+                             final ViewGroup container,
+                             final Bundle savedInstanceState) {
+        final View rootView = inflater.inflate(R.layout.dialog_date, container, false);
+
         final Date date = (Date) this.getArguments().getSerializable(ARG_DATE);
         final Calendar calender = Calendar.getInstance();
         calender.setTime(date);
@@ -35,26 +40,39 @@ public class DatePickerFragment extends DialogFragment {
         final int month = calender.get(Calendar.MONTH);
         final int day = calender.get(Calendar.DAY_OF_MONTH);
 
-        final View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_date, null);
-
-        this.mDatePicker = (DatePicker) view.findViewById(R.id.dialog_date_date_picker);
-        this.mDatePicker.init(year, month, day, null);
-
-        return new AlertDialog.Builder(getActivity())
-                .setView(view)
-                .setTitle(R.string.date_picker_title)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(final DialogInterface dialogInterface, final int i) {
-                        final int year = DatePickerFragment.this.mDatePicker.getYear();
-                        final int month = DatePickerFragment.this.mDatePicker.getMonth();
-                        final int day = DatePickerFragment.this.mDatePicker.getDayOfMonth();
-                        final Date date = new GregorianCalendar(year, month, day).getTime();
-                        DatePickerFragment.this.sendResult(Activity.RESULT_OK, date);
-                    }
-                })
-                .create();
+        final DatePicker datePicker = (DatePicker) rootView.findViewById(R.id.dialog_date_date_picker);
+        return rootView;
     }
+
+//    @Override
+//    public Dialog onCreateDialog(final Bundle savedInstanceState) {
+//        final Date date = (Date) this.getArguments().getSerializable(ARG_DATE);
+//        final Calendar calender = Calendar.getInstance();
+//        calender.setTime(date);
+//        final int year = calender.get(Calendar.YEAR);
+//        final int month = calender.get(Calendar.MONTH);
+//        final int day = calender.get(Calendar.DAY_OF_MONTH);
+//
+//        final View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_date, null);
+//
+//        this.mDatePicker = (DatePicker) view.findViewById(R.id.dialog_date_date_picker);
+//        this.mDatePicker.init(year, month, day, null);
+//
+//        return new AlertDialog.Builder(getActivity())
+//                .setView(view)
+//                .setTitle(R.string.date_picker_title)
+//                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(final DialogInterface dialogInterface, final int i) {
+//                        final int year = DatePickerFragment.this.mDatePicker.getYear();
+//                        final int month = DatePickerFragment.this.mDatePicker.getMonth();
+//                        final int day = DatePickerFragment.this.mDatePicker.getDayOfMonth();
+//                        final Date date = new GregorianCalendar(year, month, day).getTime();
+//                        DatePickerFragment.this.sendResult(Activity.RESULT_OK, date);
+//                    }
+//                })
+//                .create();
+//    }
 
     public static DatePickerFragment newInstance(final Date date) {
         final Bundle args = new Bundle();

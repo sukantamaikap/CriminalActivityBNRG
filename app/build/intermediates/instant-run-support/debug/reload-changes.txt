@@ -1,4 +1,2 @@
 CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
-CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/CrimeListFragment$override.class
-CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/CrimeListFragment$CrimeHolder$override.class
-CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/CrimeListFragment$CrimeAdapter$override.class
+CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/DatePickerFragment$override.class
