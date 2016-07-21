@@ -1866,6 +1866,8 @@ containing a value of this type.
         public static final int list_item_crime_solved_check_box=0x7f0b005e;
         public static final int list_item_crime_title_text_view=0x7f0b005f;
         public static final int media_actions=0x7f0b0064;
+        public static final int menu_item_new_crime=0x7f0b006e;
+        public static final int menu_item_show_subtitle=0x7f0b006f;
         public static final int middle=0x7f0b001d;
         public static final int multiply=0x7f0b0015;
         public static final int never=0x7f0b0021;
@@ -1969,6 +1971,9 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f04002b;
         public static final int support_simple_spinner_dropdown_item=0x7f04002c;
     }
+    public static final class menu {
+        public static final int fragment_crime_list=0x7f0d0000;
+    }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
     }
@@ -2010,13 +2015,22 @@ containing a value of this type.
         public static final int crime_title_hint=0x7f060023;
         public static final int crime_title_label=0x7f060024;
         public static final int date_picker_title=0x7f060025;
+        public static final int hide_subtitle=0x7f060026;
+        public static final int new_crime=0x7f060027;
+        public static final int show_subtitle=0x7f060028;
         public static final int status_bar_notification_info_overflow=0x7f060013;
+        public static final int subtitle_format=0x7f060029;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f08008a;
         public static final int AlertDialog_AppCompat_Light=0x7f08008b;
         public static final int Animation_AppCompat_Dialog=0x7f08008c;
         public static final int Animation_AppCompat_DropDownUp=0x7f08008d;
+        /**  Customize your theme here. 
+<item name="colorPrimary">@color/colorPrimary</item>
+<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+<item name="colorAccent">@color/colorAccent</item>
+         */
         public static final int AppTheme=0x7f08008e;
         public static final int Base_AlertDialog_AppCompat=0x7f08008f;
         public static final int Base_AlertDialog_AppCompat_Light=0x7f080090;

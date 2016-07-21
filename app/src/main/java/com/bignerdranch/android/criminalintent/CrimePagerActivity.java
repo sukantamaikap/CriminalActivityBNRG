@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,7 +15,7 @@ import java.util.UUID;
 /**
  * Created by smaikap on 13/7/16.
  */
-public class CrimePagerActivity extends FragmentActivity {
+public class CrimePagerActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private List<Crime> mCrimes;
 
@@ -27,7 +27,7 @@ public class CrimePagerActivity extends FragmentActivity {
         this.setContentView(R.layout.activity_crime_pager);
 
         this.mViewPager = (ViewPager) findViewById(R.id.activity_crime_pager_view_pager);
-        this.mCrimes = CrimeLab.getInstance(this).getmCrimes();
+        this.mCrimes = CrimeLab.getInstance(this).getCrimes();
         FragmentManager fragmentManager = this.getSupportFragmentManager();
         this.mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
 

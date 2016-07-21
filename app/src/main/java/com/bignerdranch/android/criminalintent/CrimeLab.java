@@ -16,13 +16,6 @@ public class CrimeLab {
 
     private CrimeLab() {
         this.mCrimes = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            Crime crime = new Crime();
-            crime.setTitle("Crime no #" + (i+1));
-            crime.setSolved(i%2 == 0);
-            crime.setIndex(i);
-            this.mCrimes.add(crime);
-        }
     }
 
     public static CrimeLab getInstance(final Context context) {
@@ -32,7 +25,7 @@ public class CrimeLab {
         return sCrimeLab;
     }
 
-    public List<Crime> getmCrimes() {
+    public List<Crime> getCrimes() {
         return this.mCrimes;
     }
 
@@ -43,5 +36,9 @@ public class CrimeLab {
             }
         }
         return null;
+    }
+
+    public void addCrime(final Crime crime) {
+        this.mCrimes.add(crime);
     }
 }

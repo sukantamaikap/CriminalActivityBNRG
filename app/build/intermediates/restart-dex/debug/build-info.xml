@@ -4,32 +4,30 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="7533982216358"
+    timestamp="7045678716376"
     token="206352421887215739" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="236" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="218" />
     <task
         name="verifier"
-        duration="0" />
+        duration="9" />
 
-    <build timestamp="3325758634741" >
+    <artifact
+        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="7045678716376" >
         <artifact
             location="/home/smaikap/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="7496601530432" >
-        <artifact
-            location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-            type="DEX" />
-    </build>
-    <build timestamp="7533982216358" />
 
 </instant-run>
