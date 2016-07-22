@@ -16,6 +16,10 @@
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_menu_add.png",
+        "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/drawable-mdpi/ic_menu_add.png"
+    },
+    {
         "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
     },

@@ -136,6 +136,10 @@
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_menu_add.png",
+        "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/drawable-hdpi/ic_menu_add.png"
+    },
+    {
         "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_longpressed_holo.9.png",
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-hdpi-v4/abc_list_longpressed_holo.9.png"
     },

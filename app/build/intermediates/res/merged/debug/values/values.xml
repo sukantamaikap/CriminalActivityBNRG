@@ -240,6 +240,7 @@
     <string name="date_picker_title">Date of Crime :</string>
     <string name="hide_subtitle">Hide Subtitle</string>
     <string name="new_crime">New Crime</string>
+    <string name="no_item_message">No Item present, click below to create one</string>
     <string name="show_subtitle">Show Subtitle</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="subtitle_format">%1$s crimes</string>
