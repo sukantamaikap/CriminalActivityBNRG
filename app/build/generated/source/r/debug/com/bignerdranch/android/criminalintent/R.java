@@ -1975,10 +1975,13 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f04002c;
     }
     public static final class menu {
-        public static final int fragment_crime_list=0x7f0d0000;
+        public static final int fragment_crime_list=0x7f0e0000;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
+    }
+    public static final class plurals {
+        public static final int subtitle_plural=0x7f0d0000;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f060000;

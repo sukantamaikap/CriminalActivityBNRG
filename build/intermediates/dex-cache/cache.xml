@@ -19,7 +19,7 @@
         jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="9d2750927298a7130cef2530f82f7fcd63b06305">
+        sha1="a0731c5b307b98fcdb0396f0f3b8b7b28a7980f6">
         <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3c90e266be8785e58fde996f2bb354be20e3e161/classes.dex" />
     </item>
     <item
@@ -40,7 +40,7 @@
         jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="65d6854575f323becb76440f7e8c81b8b90e2d20">
+        sha1="1aae36a4c00fad4b578fa147a0edb323ecb8a1ac">
         <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_855c21939c9e5687e4ac5046bf417facc911658b/classes.dex" />
     </item>
     <item
