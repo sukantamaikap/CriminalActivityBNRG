@@ -34,6 +34,7 @@ public class CrimeListFragment extends Fragment {
 
     private static final int REQUEST_CRIME = 1;
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
+    private boolean mItemDeleted;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -81,14 +82,11 @@ public class CrimeListFragment extends Fragment {
             this.mCrimeAdapter = new CrimeAdapter(crimes);
             this.mCrimeRecycleView.setAdapter(this.mCrimeAdapter);
         } else {
-//            this.mCrimeAdapter.notifyDataSetChanged();
-//            this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
-
-//            this.mCrimeRecycleView.getRecycledViewPool().clear();
-            this.mCrimeAdapter.notifyDataSetChanged();
-//            this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
-
-
+//            if (this.mItemDeleted) {
+                this.mCrimeAdapter.notifyDataSetChanged();
+//            } else {
+//                this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
+//            }
         }
 
         if (crimes.size() == 0) {
@@ -111,6 +109,7 @@ public class CrimeListFragment extends Fragment {
         }
 
         this.mChangedItemIndex = CrimeFragment.getChangedItemIndex(data);
+        this.mItemDeleted = CrimeFragment.getIsItemDeleted(data);
     }
 
     private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

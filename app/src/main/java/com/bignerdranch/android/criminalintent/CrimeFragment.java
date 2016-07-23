@@ -33,9 +33,11 @@ public class CrimeFragment extends Fragment {
     private Button mDateButton;
     private Button mTimeButton;
     private CheckBox mSolvedCheckBox;
+    private boolean mIsItemBeingDeleted = false;
 
     private static final String ARG_CRIME_ID = "crime_id";
     private static final String EXTRA_CHANGED_INDEX= "com.bignerdranch.android.criminalintent.item_index";
+    private static final String EXTRA_IS_ITEM_DELETED = "com.bignerdranch.android.criminalintent.is_item_deleted";
     private static final String DIALOG_DATE = "DialogDate";
     private static final String DIALOG_TIME = "DialogTime";
     private static final int REQUEST_DATE = 0;
@@ -167,11 +169,16 @@ public class CrimeFragment extends Fragment {
     private void informCaller() {
         Intent data = new Intent();
         data.putExtra(EXTRA_CHANGED_INDEX, this.mCrime.getIndex());
+        data.putExtra(EXTRA_IS_ITEM_DELETED, this.mIsItemBeingDeleted);
         this.getActivity().setResult(Activity.RESULT_OK, data);
     }
 
     public static int getChangedItemIndex(final Intent data) {
         return data.getIntExtra(EXTRA_CHANGED_INDEX, 0);
+    }
+
+    public static boolean getIsItemDeleted(final Intent data) {
+        return data.getBooleanExtra(EXTRA_IS_ITEM_DELETED, false);
     }
 
     @Override
@@ -185,6 +192,7 @@ public class CrimeFragment extends Fragment {
             case R.id.menu_item_delete_crime :
                 if (this.mCrime.getId() != null) {
                     CrimeLab.getInstance(getActivity()).deleteCrime(this.mCrime);
+                    this.mIsItemBeingDeleted =true;
                 }
                 getActivity().finish();
                 return true;
