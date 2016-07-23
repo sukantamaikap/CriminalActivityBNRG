@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,5 +41,15 @@ public class CrimeLab {
 
     public void addCrime(final Crime crime) {
         this.mCrimes.add(crime);
+    }
+
+    public void deleteCrime(final Crime crime) {
+        final Iterator<Crime> crimeIterator = this.mCrimes.iterator();
+        while (crimeIterator.hasNext()) {
+            final Crime selectedCrime = crimeIterator.next();
+            if (selectedCrime.getId().equals(crime.getId())) {
+                crimeIterator.remove();
+            }
+        }
     }
 }

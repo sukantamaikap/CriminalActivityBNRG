@@ -82,7 +82,13 @@ public class CrimeListFragment extends Fragment {
             this.mCrimeRecycleView.setAdapter(this.mCrimeAdapter);
         } else {
 //            this.mCrimeAdapter.notifyDataSetChanged();
-            this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
+//            this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
+
+//            this.mCrimeRecycleView.getRecycledViewPool().clear();
+            this.mCrimeAdapter.notifyDataSetChanged();
+//            this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
+
+
         }
 
         if (crimes.size() == 0) {

@@ -1802,8 +1802,9 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020049;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f02004a;
         public static final int abc_textfield_search_material=0x7f02004b;
-        public static final int ic_menu_add=0x7f02004c;
-        public static final int notification_template_icon_bg=0x7f02004d;
+        public static final int ic_action_delete=0x7f02004c;
+        public static final int ic_menu_add=0x7f02004d;
+        public static final int notification_template_icon_bg=0x7f02004e;
     }
     public static final class id {
         public static final int action0=0x7f0b0063;
@@ -1868,8 +1869,9 @@ containing a value of this type.
         public static final int list_item_crime_solved_check_box=0x7f0b0060;
         public static final int list_item_crime_title_text_view=0x7f0b0061;
         public static final int media_actions=0x7f0b0066;
-        public static final int menu_item_new_crime=0x7f0b0070;
-        public static final int menu_item_show_subtitle=0x7f0b0071;
+        public static final int menu_item_delete_crime=0x7f0b0070;
+        public static final int menu_item_new_crime=0x7f0b0071;
+        public static final int menu_item_show_subtitle=0x7f0b0072;
         public static final int middle=0x7f0b001d;
         public static final int multiply=0x7f0b0015;
         public static final int never=0x7f0b0021;
@@ -1975,7 +1977,8 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f04002c;
     }
     public static final class menu {
-        public static final int fragment_crime_list=0x7f0e0000;
+        public static final int fragment_crime=0x7f0e0000;
+        public static final int fragment_crime_list=0x7f0e0001;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -2021,12 +2024,13 @@ containing a value of this type.
         public static final int crime_title_hint=0x7f060023;
         public static final int crime_title_label=0x7f060024;
         public static final int date_picker_title=0x7f060025;
-        public static final int hide_subtitle=0x7f060026;
-        public static final int new_crime=0x7f060027;
-        public static final int no_item_message=0x7f060028;
-        public static final int show_subtitle=0x7f060029;
+        public static final int delete_crime=0x7f060026;
+        public static final int hide_subtitle=0x7f060027;
+        public static final int new_crime=0x7f060028;
+        public static final int no_item_message=0x7f060029;
+        public static final int show_subtitle=0x7f06002a;
         public static final int status_bar_notification_info_overflow=0x7f060013;
-        public static final int subtitle_format=0x7f06002a;
+        public static final int subtitle_format=0x7f06002b;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f08008a;
