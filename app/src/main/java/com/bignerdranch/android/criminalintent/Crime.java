@@ -24,14 +24,17 @@ public class Crime {
     }
 
     public Crime() {
-        this.mId = UUID.randomUUID();
+        this(UUID.randomUUID());
+    }
+
+    public Crime(final UUID uuid) {
+        this.mId = uuid;
         this.mDate = new Date();
         this.mTime = Calendar.getInstance();
     }
 
     public Date getDate () {
         return this.mDate;
-//        return DateFormat.format("EEE, dd, MMM yyyy", this.mDate).toString();
     }
 
     public Calendar getTime() {

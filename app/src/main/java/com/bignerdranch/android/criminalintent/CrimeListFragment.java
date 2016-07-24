@@ -82,11 +82,8 @@ public class CrimeListFragment extends Fragment {
             this.mCrimeAdapter = new CrimeAdapter(crimes);
             this.mCrimeRecycleView.setAdapter(this.mCrimeAdapter);
         } else {
-//            if (this.mItemDeleted) {
-                this.mCrimeAdapter.notifyDataSetChanged();
-//            } else {
-//                this.mCrimeAdapter.notifyItemChanged(this.mChangedItemIndex);
-//            }
+            this.mCrimeAdapter.setCrimes(crimes);
+            this.mCrimeAdapter.notifyDataSetChanged();
         }
 
         if (crimes.size() == 0) {
@@ -163,6 +160,10 @@ public class CrimeListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return this.mCrimes.size();
+        }
+
+        public void setCrimes(final List<Crime> crimes) {
+            this.mCrimes = crimes;
         }
     }
 

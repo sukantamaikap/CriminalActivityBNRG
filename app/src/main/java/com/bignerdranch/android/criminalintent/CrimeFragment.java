@@ -187,6 +187,12 @@ public class CrimeFragment extends Fragment {
         inflater.inflate(R.menu.fragment_crime, menu);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        CrimeLab.getInstance(getActivity()).updateCrime(this.mCrime);
+    }
+
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_delete_crime :
