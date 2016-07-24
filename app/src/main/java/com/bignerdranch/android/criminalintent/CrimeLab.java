@@ -67,6 +67,12 @@ public class CrimeLab {
     }
 
     public void deleteCrime(final Crime crime) {
+        final String uuIdString = crime.getId().toString();
+        final ContentValues values = getContentValues(crime);
+
+        this.mDatabase.delete(CrimeDBSchema.CrimeTable.NAME,
+                CrimeDBSchema.Columns.UUID + " = ?",
+                new String[] {uuIdString});
     }
 
     public void updateCrime(final Crime crime) {
