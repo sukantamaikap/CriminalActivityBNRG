@@ -14,6 +14,15 @@ public class Crime {
     private Calendar mTime;
     private boolean mSolved;
     private int mIndex;
+    private String mSuspect;
+
+    public String getSuspect() {
+        return this.mSuspect;
+    }
+
+    public void setSuspect(String suspect) {
+        this.mSuspect = suspect;
+    }
 
     public int getIndex() {
         return mIndex;
