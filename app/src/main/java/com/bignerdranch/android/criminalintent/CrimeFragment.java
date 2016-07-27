@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.ShareCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -145,12 +146,12 @@ public class CrimeFragment extends Fragment {
         this.mReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, CrimeFragment.this.getCrimeReport());
-                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crime_report_subject));
-                intent = Intent.createChooser(intent, CrimeFragment.this.getString(R.string.send_report));
-                startActivity(intent);
+                final Intent intent = ShareCompat.IntentBuilder.from(CrimeFragment.this.getActivity())
+                        .setType("text/plain")
+                        .setSubject(CrimeFragment.this.getString(R.string.crime_report_subject))
+                        .setText(CrimeFragment.this.getCrimeReport())
+                        .getIntent();
+                CrimeFragment.this.startActivity(intent);
             }
         });
 
