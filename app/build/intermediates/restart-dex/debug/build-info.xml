@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
-    api-level="23"
-    density="420dpi"
+    abi="armeabi-v7a,armeabi"
+    api-level="22"
+    density="xhdpi"
     format="7"
-    timestamp="978507161636"
+    timestamp="8177831968069"
     token="206352421887215739" >
 
     <task
         name="javac"
-        duration="2594" />
+        duration="112" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="747" />
+        duration="21" />
     <task
         name="verifier"
-        duration="35" />
+        duration="1" />
 
     <artifact
-        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/resources-debug.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+        type="DEX" />
 
-    <build timestamp="978507161636" >
+    <build timestamp="7621599012023" >
         <artifact
             location="/home/smaikap/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build timestamp="8177831968069" >
+        <artifact
+            location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

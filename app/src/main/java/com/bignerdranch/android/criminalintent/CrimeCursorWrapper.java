@@ -21,12 +21,14 @@ public class CrimeCursorWrapper extends CursorWrapper {
         final long date = this.getLong(this.getColumnIndex(CrimeDBSchema.Columns.DATE));
         final int isSolved = this.getInt(this.getColumnIndex(CrimeDBSchema.Columns.SOLVED));
         final String suspect = this.getString(this.getColumnIndex(CrimeDBSchema.Columns.SUSPECT));
+        final String phoneNumber = this.getString(this.getColumnIndex(CrimeDBSchema.Columns.PHONE_NO));
 
         final Crime crime = new Crime(UUID.fromString(uuidString));
         crime.setTitle(title);
         crime.setDate(new Date(date));
         crime.setSolved(isSolved != 0);
         crime.setSuspect(suspect);
+        crime.setPhoneNumber(phoneNumber);
 
         return crime;
     }

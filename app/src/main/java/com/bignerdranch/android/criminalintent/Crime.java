@@ -15,6 +15,15 @@ public class Crime {
     private boolean mSolved;
     private int mIndex;
     private String mSuspect;
+    private String mPhoneNumber;
+
+    public String getPhoneNumber() {
+        return this.mPhoneNumber;
+    }
+
+    public void setPhoneNumber(final String phoneNumber) {
+        this.mPhoneNumber = phoneNumber;
+    }
 
     public String getSuspect() {
         return this.mSuspect;

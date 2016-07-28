@@ -41,6 +41,7 @@ public class CrimeFragment extends Fragment {
     private Button mReportButton;
     private Button mSuspectButton;
     private CheckBox mSolvedCheckBox;
+    private Button mCallSuspect;
     private boolean mIsItemBeingDeleted = false;
 
     private static final String ARG_CRIME_ID = "crime_id";
@@ -51,6 +52,7 @@ public class CrimeFragment extends Fragment {
     private static final int REQUEST_DATE = 0;
     private static final int REQUEST_TIME = 1;
     private static final int REQUEST_CONTACT = 2;
+    private static final int REQUEST_CONTACT_NUMBER = 3;
 
     /**
      * Call this method to initialize {@link CrimeFragment}
@@ -172,6 +174,19 @@ public class CrimeFragment extends Fragment {
             this.mSuspectButton.setEnabled(false);
         }
 
+        this.mCallSuspect = (Button) view.findViewById(R.id.call_suspect);
+        if (this.mCrime.getPhoneNumber() != null) {
+            this.mCallSuspect.setEnabled(true);
+        }
+        this.mCallSuspect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                final Intent callContact = new Intent(Intent.ACTION_DIAL);
+                callContact.setData(Uri.parse("tel:" + CrimeFragment.this.mCrime.getPhoneNumber()));
+                startActivity(callContact);
+            }
+        });
+
         return view;
     }
 
@@ -197,23 +212,70 @@ public class CrimeFragment extends Fragment {
 
         if (requestCode == REQUEST_CONTACT && data != null) {
             final Uri contactUri = data.getData();
-            final String[] queryFieldString = new String[] {
-                    ContactsContract.Contacts.DISPLAY_NAME
-            };
+            populateContactDisplayName(contactUri);
+            populateContactNumber(contactUri);
+        }
+    }
 
-            final Cursor cursor = this.getActivity().getContentResolver().query(contactUri, queryFieldString, null, null, null);
+    private void populateContactNumber(final Uri contactUri) {
+        final Cursor cursorID = this.getActivity().getContentResolver().query(contactUri,
+                new String[]{ContactsContract.Contacts._ID},
+                null, null, null);
+        String contactID = null;
 
-            try {
-                if (cursor.getCount() == 0) {
-                    return;
-                }
-
-                cursor.moveToFirst();
-                final String suspect = cursor.getString(0);
-                this.mCrime.setSuspect(suspect);
-            } finally {
-                cursor.close();
+        try {
+            if (cursorID.getCount() == 0) {
+                return;
             }
+
+            cursorID.moveToFirst();
+            contactID = cursorID.getString(cursorID.getColumnIndex(ContactsContract.Contacts._ID));
+        } finally {
+            cursorID.close();
+        }
+
+        final Cursor cursorPhone = this.getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER},
+                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ? AND " +
+                        ContactsContract.CommonDataKinds.Phone.TYPE + " = " +
+                        ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE,
+                new String[]{contactID},
+                null);
+
+        try {
+            if (cursorPhone.getCount() == 0) {
+                return;
+            }
+
+            cursorPhone.moveToFirst();
+            final String contactNo = cursorPhone.getString(cursorPhone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            if (contactNo != null) {
+                this.mCrime.setPhoneNumber(contactNo);
+                this.mCallSuspect.setEnabled(true);
+            }
+        } finally {
+            cursorPhone.close();
+        }
+    }
+
+    private void populateContactDisplayName(final Uri contactUri) {
+        final String[] queryFieldContactName = new String[] {
+                ContactsContract.Contacts.DISPLAY_NAME
+        };
+
+        final Cursor cursor = this.getActivity().getContentResolver().query(contactUri, queryFieldContactName, null, null, null);
+
+        try {
+            if (cursor.getCount() == 0) {
+                return;
+            }
+
+            cursor.moveToFirst();
+            final String suspect = cursor.getString(0);
+            this.mCrime.setSuspect(suspect);
+            this.mSuspectButton.setText(suspect);
+        } finally {
+            cursor.close();
         }
     }
 
