@@ -84,6 +84,136 @@ public class CrimeFragment extends Fragment {
                              final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_crime, container, false);
+        setupTitleField(view);
+        setupDateButton(view);
+        setupTimeButton(view);
+        setupSolvedCheckBox(view);
+        setupReportButton(view);
+        setupSuspectButton(view);
+        setupCallSuspect(view);
+        return view;
+    }
+
+    /**
+     * Setup call suspect button. This button should be disabled till a suspect is chosen
+     * and the suspect has a valid phone number.
+     * @param view
+     */
+    private void setupCallSuspect(View view) {
+        this.mCallSuspect = (Button) view.findViewById(R.id.call_suspect);
+        if (this.mCrime.getPhoneNumber() != null) {
+            this.mCallSuspect.setEnabled(true);
+        }
+        this.mCallSuspect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                final Intent callContact = new Intent(Intent.ACTION_DIAL);
+                callContact.setData(Uri.parse("tel:" + CrimeFragment.this.mCrime.getPhoneNumber()));
+                startActivity(callContact);
+            }
+        });
+    }
+
+    /**
+     * Suspect displays the contact dispaly name if any contact on the phone book.
+     * @param view
+     */
+    private void setupSuspectButton(View view) {
+        final Intent pickContact = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        this.mSuspectButton = (Button) view.findViewById(R.id.crime_suspect);
+        this.mSuspectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                startActivityForResult(pickContact, REQUEST_CONTACT);
+            }
+        });
+        if (this.mCrime.getSuspect() != null) {
+            this.mSuspectButton.setText(this.mCrime.getSuspect());
+        }
+
+        final PackageManager packageManager = this.getActivity().getPackageManager();
+        if (packageManager.resolveActivity(pickContact, PackageManager.MATCH_DEFAULT_ONLY) == null) {
+            this.mSuspectButton.setEnabled(false);
+        }
+    }
+
+    /**
+     * Sends message of the crime committed.
+     * @param view
+     */
+    private void setupReportButton(View view) {
+        this.mReportButton = (Button) view.findViewById(R.id.crime_report);
+        this.mReportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Intent intent = ShareCompat.IntentBuilder.from(CrimeFragment.this.getActivity())
+                        .setType("text/plain")
+                        .setSubject(CrimeFragment.this.getString(R.string.crime_report_subject))
+                        .setText(CrimeFragment.this.getCrimeReport())
+                        .getIntent();
+                CrimeFragment.this.startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * Checked when the crime is solved.
+     * @param view
+     */
+    private void setupSolvedCheckBox(View view) {
+        this.mSolvedCheckBox = (CheckBox) view.findViewById(R.id.crime_solved);
+        this.mSolvedCheckBox.setChecked(this.mCrime.isSolved());
+        this.mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged (final CompoundButton buttonView, final boolean isChecked) {
+                CrimeFragment.this.mCrime.setSolved(isChecked);
+                informCaller();
+            }
+        });
+    }
+
+    /**
+     * User input for time of crime
+     * @param view
+     */
+    private void setupTimeButton(View view) {
+        this.mTimeButton = (Button) view.findViewById(R.id.crime_time);
+        updateTimeField();
+        this.mTimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentManager fragmentManager = CrimeFragment.this.getFragmentManager();
+                final TimePickerFragment dialog = TimePickerFragment.newInstance(CrimeFragment.this.mCrime.getTime());
+                dialog.setTargetFragment(CrimeFragment.this, REQUEST_TIME);
+                dialog.show(fragmentManager, DIALOG_TIME);
+            }
+        });
+    }
+
+    /**
+     * User input for date of crime
+     * @param view
+     */
+    private void setupDateButton(View view) {
+        this.mDateButton = (Button) view.findViewById(R.id.crime_date);
+        updateDateField();
+        this.mDateButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                final FragmentManager fragmentManager = getFragmentManager();
+                final DatePickerFragment dialog = DatePickerFragment.newInstance(CrimeFragment.this.mCrime.getDate());
+                dialog.setTargetFragment(CrimeFragment.this, REQUEST_DATE);
+                dialog.show(fragmentManager, DIALOG_DATE);
+            }
+        });
+    }
+
+    /**
+     * User input for crime title.
+     * @param view
+     */
+    private void setupTitleField(View view) {
         this.mTitleField = (EditText) view.findViewById(R.id.crime_title);
         this.mTitleField.setText(this.mCrime.getTitle());
         this.mTitleField.addTextChangedListener(new TextWatcher() {
@@ -108,86 +238,6 @@ public class CrimeFragment extends Fragment {
                 informCaller();
             }
         });
-
-        this.mDateButton = (Button) view.findViewById(R.id.crime_date);
-        updateDateField();
-        this.mDateButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                final FragmentManager fragmentManager = getFragmentManager();
-                final DatePickerFragment dialog = DatePickerFragment.newInstance(CrimeFragment.this.mCrime.getDate());
-                dialog.setTargetFragment(CrimeFragment.this, REQUEST_DATE);
-                dialog.show(fragmentManager, DIALOG_DATE);
-            }
-        });
-
-        this.mTimeButton = (Button) view.findViewById(R.id.crime_time);
-        updateTimeField();
-        this.mTimeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final FragmentManager fragmentManager = CrimeFragment.this.getFragmentManager();
-                final TimePickerFragment dialog = TimePickerFragment.newInstance(CrimeFragment.this.mCrime.getTime());
-                dialog.setTargetFragment(CrimeFragment.this, REQUEST_TIME);
-                dialog.show(fragmentManager, DIALOG_TIME);
-            }
-        });
-
-        this.mSolvedCheckBox = (CheckBox) view.findViewById(R.id.crime_solved);
-        this.mSolvedCheckBox.setChecked(this.mCrime.isSolved());
-        this.mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged (final CompoundButton buttonView, final boolean isChecked) {
-                CrimeFragment.this.mCrime.setSolved(isChecked);
-                informCaller();
-            }
-        });
-
-        this.mReportButton = (Button) view.findViewById(R.id.crime_report);
-        this.mReportButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Intent intent = ShareCompat.IntentBuilder.from(CrimeFragment.this.getActivity())
-                        .setType("text/plain")
-                        .setSubject(CrimeFragment.this.getString(R.string.crime_report_subject))
-                        .setText(CrimeFragment.this.getCrimeReport())
-                        .getIntent();
-                CrimeFragment.this.startActivity(intent);
-            }
-        });
-
-        final Intent pickContact = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        this.mSuspectButton = (Button) view.findViewById(R.id.crime_suspect);
-        this.mSuspectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                startActivityForResult(pickContact, REQUEST_CONTACT);
-            }
-        });
-        if (this.mCrime.getSuspect() != null) {
-            this.mSuspectButton.setText(this.mCrime.getSuspect());
-        }
-
-        final PackageManager packageManager = this.getActivity().getPackageManager();
-        if (packageManager.resolveActivity(pickContact, PackageManager.MATCH_DEFAULT_ONLY) == null) {
-            this.mSuspectButton.setEnabled(false);
-        }
-
-        this.mCallSuspect = (Button) view.findViewById(R.id.call_suspect);
-        if (this.mCrime.getPhoneNumber() != null) {
-            this.mCallSuspect.setEnabled(true);
-        }
-        this.mCallSuspect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                final Intent callContact = new Intent(Intent.ACTION_DIAL);
-                callContact.setData(Uri.parse("tel:" + CrimeFragment.this.mCrime.getPhoneNumber()));
-                startActivity(callContact);
-            }
-        });
-
-        return view;
     }
 
     @Override

@@ -4,50 +4,30 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="3455217697413"
-    token="206352421887215739"
-    verifier="R_CLASS_CHANGE" >
+    timestamp="4001873410093"
+    token="206352421887215739" >
 
     <task
         name="javac"
-        duration="442" />
+        duration="2941" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="63" />
+        duration="636" />
     <task
         name="verifier"
-        duration="11" />
+        duration="38" />
 
     <artifact
-        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/resources-debug.ap_"
-        type="RESOURCES" />
-    <artifact
-        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
-        type="DEX" />
-    <artifact
-        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-        type="DEX" />
+        location="/home/smaikap/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
 
-    <build timestamp="3336596055820" >
+    <build timestamp="4001873410093" >
         <artifact
             location="/home/smaikap/projects/CriminalActivityBNRG/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
-    </build>
-    <build
-        timestamp="3455217697413"
-        verifier="R_CLASS_CHANGE" >
-        <artifact
-            location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>
