@@ -8,6 +8,10 @@
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_bar_up_container.xml"
     },
     {
+        "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/view_camera_and_title.xml",
+        "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/layout/view_camera_and_title.xml"
+    },
+    {
         "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_part_chronometer.xml"
     },

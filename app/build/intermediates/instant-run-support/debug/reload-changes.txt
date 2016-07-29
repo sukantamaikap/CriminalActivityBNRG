@@ -1,3 +1,6 @@
 CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
-CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/CrimeFragment$7$override.class
+CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/CrimeListFragment$override.class
+CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/CrimeListFragment$CrimeHolder$override.class
+CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/android/support/v7/appcompat/R$id$override.class
 CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/CrimeFragment$override.class
+CHANGED,/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/bignerdranch/android/criminalintent/R$id$override.class
