@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ShareCompat;
@@ -23,7 +25,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import java.io.File;
 import java.net.URI;
 import java.util.Calendar;
 import java.util.Date;
@@ -42,6 +47,9 @@ public class CrimeFragment extends Fragment {
     private Button mSuspectButton;
     private CheckBox mSolvedCheckBox;
     private Button mCallSuspect;
+    private ImageButton mPhotoButton;
+    private ImageView mPhotoView;
+    private File mPhotoFile;
     private boolean mIsItemBeingDeleted = false;
 
     private static final String ARG_CRIME_ID = "crime_id";
@@ -52,7 +60,7 @@ public class CrimeFragment extends Fragment {
     private static final int REQUEST_DATE = 0;
     private static final int REQUEST_TIME = 1;
     private static final int REQUEST_CONTACT = 2;
-    private static final int REQUEST_CONTACT_NUMBER = 3;
+    private static final int REQUEST_PHOTO = 3;
 
     /**
      * Call this method to initialize {@link CrimeFragment}
@@ -74,6 +82,7 @@ public class CrimeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         final UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
         this.mCrime = CrimeLab.getInstance(getActivity()).getCrime(crimeId);
+        this.mPhotoFile = CrimeLab.getInstance(getActivity()).getPhotoFile(this.mCrime);
         if (this.mCrime.getTitle() != null) {
             this.setHasOptionsMenu(true);
         }
@@ -91,7 +100,32 @@ public class CrimeFragment extends Fragment {
         setupReportButton(view);
         setupSuspectButton(view);
         setupCallSuspect(view);
+        setupClickPhotoButton(view);
+        setupCrimePhotoView(view);
         return view;
+    }
+
+    private void setupCrimePhotoView(View view) {
+        this.mPhotoView = (ImageView) view.findViewById(R.id.crime_photo);
+        this.updatePhotoView();
+    }
+
+    private void setupClickPhotoButton(View view) {
+        this.mPhotoButton = (ImageButton) view.findViewById(R.id.crime_camera);
+        final Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        final PackageManager packageManager = this.getActivity().getPackageManager();
+        if (this.mPhotoFile != null && captureImage.resolveActivity(packageManager) != null) {
+            final Uri uri = Uri.fromFile(this.mPhotoFile);
+            captureImage.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+        }
+
+        this.mPhotoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(captureImage, REQUEST_PHOTO);
+            }
+        });
     }
 
     /**
@@ -265,6 +299,10 @@ public class CrimeFragment extends Fragment {
             populateContactDisplayName(contactUri);
             populateContactNumber(contactUri);
         }
+
+        if (requestCode == REQUEST_PHOTO) {
+            this.updatePhotoView();
+        }
     }
 
     private void populateContactNumber(final Uri contactUri) {
@@ -398,5 +436,14 @@ public class CrimeFragment extends Fragment {
         }
 
         return getString(R.string.crime_report, this.mCrime.getTitle(), dateString, solvedString, suspect);
+    }
+
+    private void updatePhotoView() {
+        if (this.mPhotoFile == null || !this.mPhotoFile.exists()) {
+            this.mPhotoView.setImageDrawable(null);
+        } else {
+            final Bitmap bitmap = PictureUtils.getScaledBitmap(this.mPhotoFile.getPath(), this.getActivity());
+            this.mPhotoView.setImageBitmap(bitmap);
+        }
     }
 }

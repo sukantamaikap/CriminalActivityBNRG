@@ -4,7 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 
+import java.io.File;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -83,6 +85,15 @@ public class CrimeLab {
                 values,
                 CrimeDBSchema.Columns.UUID + " = ?",
                 new String[] {uuIdString});
+    }
+
+    public File getPhotoFile(final Crime crime) {
+        final File externalFileDir = this.mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        if (externalFileDir == null) {
+            return null;
+        }
+
+        return new File(externalFileDir, crime.getPhotoFileName());
     }
 
     private static ContentValues getContentValues(final Crime crime) {

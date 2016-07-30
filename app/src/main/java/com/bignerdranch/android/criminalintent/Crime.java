@@ -90,4 +90,8 @@ public class Crime {
     public UUID getId () {
         return this.mId;
     }
+
+    public String getPhotoFileName() {
+        return "IMG_" + this.getId() +".jpg";
+    }
 }
