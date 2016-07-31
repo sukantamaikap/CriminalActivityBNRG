@@ -144,6 +144,10 @@
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/layout/dialog_date.xml"
     },
     {
+        "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/dialog_crime_image.xml",
+        "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/layout/dialog_crime_image.xml"
+    },
+    {
         "merged": "/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/res/merged/debug/layout/activity_crime_pager.xml",
         "source": "/home/smaikap/projects/CriminalActivityBNRG/app/src/main/res/layout/activity_crime_pager.xml"
     },
