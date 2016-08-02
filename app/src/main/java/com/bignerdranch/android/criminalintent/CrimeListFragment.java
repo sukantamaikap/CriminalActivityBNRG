@@ -31,15 +31,27 @@ public class CrimeListFragment extends Fragment {
     private ImageButton mAddImageButton;
     private int mChangedItemIndex;
     private boolean mSubtitleVisible;
+    private Callbacks mCallbacks;
 
     private static final int REQUEST_CRIME = 1;
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
     private boolean mItemDeleted;
 
+    public interface Callbacks {
+        void onCrimeSelected(final Crime crime);
+    }
+
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onAttach(final Activity activity) {
+        super.onAttach(activity);
+        this.mCallbacks = (Callbacks) activity;
+
     }
 
     @Nullable
@@ -69,12 +81,16 @@ public class CrimeListFragment extends Fragment {
         return view;
     }
 
+    @Override
     public void onSaveInstanceState(final Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(SAVED_SUBTITLE_VISIBLE, mSubtitleVisible);
     }
 
-    private void updateUI() {
+    /**
+     * call this to to update crime list fragment ui
+     */
+    public void updateUI() {
         final CrimeLab crimeLab = CrimeLab.getInstance(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
 
@@ -132,8 +148,7 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            final Intent intent = CrimePagerActivity.newIntent(getActivity(), this.mCrime.getId());
-            startActivityForResult(intent, REQUEST_CRIME);
+            CrimeListFragment.this.mCallbacks.onCrimeSelected(mCrime);
         }
     }
 
@@ -221,7 +236,13 @@ public class CrimeListFragment extends Fragment {
     private void createNewCrime() {
         final Crime crime = new Crime();
         CrimeLab.getInstance(getActivity()).addCrime(crime);
-        final Intent intent = CrimePagerActivity.newIntent(getActivity(), crime.getId());
-        startActivity(intent);
+        this.updateUI();
+        this.mCallbacks.onCrimeSelected(crime);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        this.mCallbacks = null;
     }
 }

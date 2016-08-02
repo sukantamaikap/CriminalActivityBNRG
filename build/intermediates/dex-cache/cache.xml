@@ -1,2 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_9f729881a4fd17c1c7e76184052352f9eaada599/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.0.0_46f74d232a5b615c1e247acfe1cbdcf03a043863/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="38e242ce91572ad797d62e950bc565453e625b45">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3c90e266be8785e58fde996f2bb354be20e3e161/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.0.0/2943c74db6d4346ab8c6531adac91fa05c137c40/support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_eeb6324b37dd0da7b3bd3d3194b8103cc402a40f/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0_06cb0d9ddb8960d36bc34fbdff919bdd69f77fbe/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="cbf470ddd681084c7dc65fb2a14b80ec43b3645d">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_855c21939c9e5687e4ac5046bf417facc911658b/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_16ec2f52fc279d86356a4975753d3f19befe1e07/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.0.0_386636326ff2eb58753a29731e651e6e2f8c6e96/classes.dex" />
+    </item>
+    <item
+        jar="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="/home/smaikap/projects/CriminalActivityBNRG/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.0.0_9fd7b3b7b2850c6227e7bb6a768f6168a0a42869/classes.dex" />
+    </item>
+
+</items>

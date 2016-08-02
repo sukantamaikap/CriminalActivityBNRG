@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ShareCompat;
+import android.telecom.Call;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -21,6 +22,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -50,6 +52,7 @@ public class CrimeFragment extends Fragment {
     private ImageButton mPhotoButton;
     private ImageView mPhotoView;
     private File mPhotoFile;
+    private Callbacks mCallbacks;
     private boolean mIsItemBeingDeleted = false;
 
     private static final String ARG_CRIME_ID = "crime_id";
@@ -61,6 +64,10 @@ public class CrimeFragment extends Fragment {
     private static final int REQUEST_TIME = 1;
     private static final int REQUEST_CONTACT = 2;
     private static final int REQUEST_PHOTO = 3;
+
+    public interface Callbacks {
+        void onCrimeUpdated(final Crime crime);
+    }
 
     /**
      * Call this method to initialize {@link CrimeFragment}
@@ -107,6 +114,16 @@ public class CrimeFragment extends Fragment {
 
     private void setupCrimePhotoView(View view) {
         this.mPhotoView = (ImageView) view.findViewById(R.id.crime_photo);
+        final int[] photoViewHight = new int[1];
+        final int[] photoViewWidth = new int[1];
+        this.mPhotoView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                photoViewHight[0] = CrimeFragment.this.mPhotoView.getHeight();
+                photoViewWidth[0] = CrimeFragment.this.mPhotoView.getWidth();
+            }
+        });
+//        this.updatePhotoView(photoViewHight[0], photoViewWidth[0]);
         this.updatePhotoView();
         this.mPhotoView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,6 +227,7 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onCheckedChanged (final CompoundButton buttonView, final boolean isChecked) {
                 CrimeFragment.this.mCrime.setSolved(isChecked);
+                CrimeFragment.this.updateCrime();
                 informCaller();
             }
         });
@@ -274,6 +292,7 @@ public class CrimeFragment extends Fragment {
                                        int before,
                                        int count) {
                 CrimeFragment.this.mCrime.setTitle(s.toString());
+                CrimeFragment.this.updateCrime();
             }
 
             @Override
@@ -281,6 +300,12 @@ public class CrimeFragment extends Fragment {
                 informCaller();
             }
         });
+    }
+
+    @Override
+    public void onAttach(final Activity activity) {
+        super.onAttach(activity);
+        this.mCallbacks = (Callbacks) activity;
     }
 
     @Override
@@ -294,6 +319,7 @@ public class CrimeFragment extends Fragment {
         if (requestCode == REQUEST_DATE) {
             final Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
             this.mCrime.setDate(date);
+            this.updateCrime();
             updateDateField();
         }
 
@@ -306,11 +332,13 @@ public class CrimeFragment extends Fragment {
         if (requestCode == REQUEST_CONTACT && data != null) {
             final Uri contactUri = data.getData();
             populateContactDisplayName(contactUri);
+            this.updateCrime();
             populateContactNumber(contactUri);
         }
 
         if (requestCode == REQUEST_PHOTO) {
             this.updatePhotoView();
+            this.updateCrime();
         }
     }
 
@@ -454,5 +482,26 @@ public class CrimeFragment extends Fragment {
             final Bitmap bitmap = PictureUtils.getScaledBitmap(this.mPhotoFile.getPath(), this.getActivity());
             this.mPhotoView.setImageBitmap(bitmap);
         }
+    }
+
+    private void updatePhotoView(final int height, final int width) {
+        if (this.mPhotoFile == null || !this.mPhotoFile.exists()) {
+            this.mPhotoView.setImageDrawable(null);
+        } else {
+            final Bitmap bitmap = PictureUtils.getScaledBitmap(this.mPhotoFile.getPath(), height, width);
+            this.mPhotoView.setImageBitmap(bitmap);
+        }
+
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        this.mCallbacks = null;
+    }
+
+    public void updateCrime() {
+        CrimeLab.getInstance(this.getActivity()).updateCrime(this.mCrime);
+        this.mCallbacks.onCrimeUpdated(this.mCrime);
     }
 }
